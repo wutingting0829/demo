@@ -17,7 +17,7 @@ pipeline {
 
         stage('Front-End Unit Test') {
           steps {
-            sh './mvnw clean install  && ./mvnw spring-boot:run'
+            sh '.\mvnw clean install  && .\mvnw spring-boot:run'
           }
         }
 
