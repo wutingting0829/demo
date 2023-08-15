@@ -7,9 +7,20 @@ pipeline {
       }
     }
 
-    stage('') {
-      steps {
-        sh 'ls -la'
+    stage('error') {
+      parallel {
+        stage('error') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
+        stage('Front-End Unit Test') {
+          steps {
+            sh 'cd demo && mvnw clean install  && .\\mvnw spring-boot:run'
+          }
+        }
+
       }
     }
 
